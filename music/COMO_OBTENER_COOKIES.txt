@@ -1,0 +1,69 @@
+=====================================
+COMO OBTENER COOKIES DE YOUTUBE
+=====================================
+
+YouTube bloquea descargas desde servidores. 
+Para solucionarlo necesitas exportar las cookies de tu navegador.
+
+PASO 1: INSTALAR EXTENSION EN TU NAVEGADOR
+-------------------------------------------
+Instala una de estas extensiones en Chrome o Firefox:
+
+Chrome: "Get cookies.txt LOCALLY"
+https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc
+
+Firefox: "cookies.txt"
+https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/
+
+
+PASO 2: INICIAR SESION EN YOUTUBE
+----------------------------------
+1. Abre YouTube.com en tu navegador
+2. Inicia sesion con tu cuenta de Google
+3. Asegurate de estar logueado
+
+
+PASO 3: EXPORTAR LAS COOKIES
+-----------------------------
+1. Estando en YouTube.com, haz clic en la extension
+2. Selecciona "Export" o "Exportar"
+3. Guarda el archivo como "cookies.txt"
+
+
+PASO 4: SUBIR COOKIES A TU DROPLET
+-----------------------------------
+Sube el archivo cookies.txt a la carpeta de tu bot:
+
+Opcion 1 - Con SCP desde tu computadora:
+scp cookies.txt root@TU_IP:~/musicbot/music/
+
+Opcion 2 - Con FileZilla:
+Conecta a tu servidor y sube el archivo a ~/musicbot/music/
+
+
+PASO 5: VERIFICAR
+------------------
+En tu droplet, verifica que el archivo existe:
+
+cd ~/musicbot/music
+ls -la cookies.txt
+
+Deberia mostrar el archivo.
+
+
+PASO 6: REINICIAR EL BOT
+-------------------------
+python3 main.py
+
+Ahora las descargas deberian funcionar.
+
+
+=====================================
+NOTAS IMPORTANTES
+=====================================
+
+- Las cookies expiran despues de un tiempo
+- Si vuelve a fallar, repite el proceso
+- No compartas tu archivo cookies.txt
+- Usa una cuenta de YouTube secundaria por seguridad
+

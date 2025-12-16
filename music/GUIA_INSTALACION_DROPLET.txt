@@ -1,0 +1,127 @@
+=====================================
+GUIA COMPLETA - INSTALAR BOT EN DROPLET
+=====================================
+
+PASO 1: CONECTAR A TU DROPLET
+-----------------------------
+Abre una terminal y escribe:
+
+    ssh root@TU_IP_DEL_DROPLET
+
+(Reemplaza TU_IP_DEL_DROPLET con la IP de tu servidor)
+
+
+PASO 2: ACTUALIZAR EL SISTEMA
+-----------------------------
+    sudo apt update && sudo apt upgrade -y
+
+
+PASO 3: INSTALAR PYTHON, PIP Y FFMPEG
+--------------------------------------
+    sudo apt install python3 python3-pip ffmpeg git -y
+
+
+PASO 4: CREAR CARPETA PARA EL BOT
+---------------------------------
+    mkdir ~/musicbot
+    cd ~/musicbot
+
+
+PASO 5: DESCARGAR TU CODIGO DESDE GITHUB
+----------------------------------------
+Si tienes el codigo en GitHub:
+
+    git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git .
+
+O puedes subir los archivos manualmente con FileZilla/SCP.
+
+
+PASO 6: INSTALAR DEPENDENCIAS DE PYTHON
+---------------------------------------
+    pip3 install pytelegrambotapi yt-dlp requests
+
+
+PASO 7: CREAR CARPETA DE DESCARGAS
+----------------------------------
+    mkdir downloads
+
+
+PASO 8: PROBAR QUE EL BOT FUNCIONE
+----------------------------------
+    python3 main.py
+
+Deberias ver: "BOT V16.5 (MODO 'SI O SI' ACTIVADO) --> ONLINE"
+
+Prueba el bot en Telegram. Si funciona, continua al paso 9.
+Para detenerlo presiona: Ctrl + C
+
+
+PASO 9: MANTENER EL BOT CORRIENDO SIEMPRE (CON SCREEN)
+-------------------------------------------------------
+Instalar screen:
+
+    sudo apt install screen -y
+
+Crear una sesion:
+
+    screen -S musicbot
+
+Ejecutar el bot:
+
+    python3 main.py
+
+Salir de la sesion sin cerrarla:
+    Presiona: Ctrl + A, luego D
+
+Para volver a ver el bot:
+
+    screen -r musicbot
+
+
+=====================================
+COMANDOS UTILES
+=====================================
+
+Ver si el bot esta corriendo:
+    screen -ls
+
+Volver a la sesion del bot:
+    screen -r musicbot
+
+Detener el bot:
+    screen -r musicbot
+    (luego presiona Ctrl + C)
+
+Reiniciar el bot:
+    screen -r musicbot
+    python3 main.py
+
+
+=====================================
+SI ALGO FALLA
+=====================================
+
+Error "No module named telebot":
+    pip3 install pytelegrambotapi
+
+Error "No module named yt_dlp":
+    pip3 install yt-dlp
+
+Error al convertir audio (ffmpeg):
+    sudo apt install ffmpeg -y
+
+Error de permisos:
+    sudo chmod -R 755 ~/musicbot
+
+
+=====================================
+RESUMEN DE COMANDOS (COPIA Y PEGA)
+=====================================
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3 python3-pip ffmpeg screen git -y
+mkdir ~/musicbot && cd ~/musicbot
+pip3 install pytelegrambotapi yt-dlp requests
+mkdir downloads
+python3 main.py
+
